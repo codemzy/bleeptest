@@ -9,7 +9,10 @@ var data20 = {
 
 $(document).ready(function() {
     
-    var level = 1;
+    var level = 1; // the current level
+    var run = 1; // the current run number
+    var ran = 0; // the distance ran
+    var speed = 0; // the current speed
    
    $('#start').on('click', function() {
        $('h1').text('Level ' + level);
