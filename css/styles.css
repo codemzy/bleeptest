@@ -16,8 +16,7 @@ body,html {
 
 .bleep {
     margin-top: 150px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 50px 10px;
     background: #000000;
     background: rgba(0,0,0,0.6);
 }
