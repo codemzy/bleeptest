@@ -18,4 +18,12 @@ $(document).ready(function() {
        $('#bar').removeClass('indeterminate');
        $('#bar').width('50%').addClass('determinate');
    });
+   
+   $('#stop').on('click', function() {
+       $('#start').removeClass('disabled');
+       $('#stop').addClass('disabled');
+       $('#bar').width('0%').addClass('indeterminate');
+       $('#bar').removeClass('determinate');
+   });
+   
 });
