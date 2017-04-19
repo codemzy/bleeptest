@@ -27,13 +27,12 @@ $(document).ready(function() {
        $('#start').addClass('disabled');
        $('#stop').removeClass('disabled');
        $('#bar').removeClass('indeterminate');
-       $('#bar').width('50%').addClass('determinate');
+       $('#bar').width('0%').addClass('determinate');
        doLevel();
     });
     
     // function to run interval for progress bar
     let progressBar = function() {
-        $('#buzzer').trigger('play');
         var forward = $("#bar").hasClass("forward") ? true : false; // should bar move forward or backward
         var barWidth = forward ? 0 : 100; // start at 0 or 100
         // set the classes
@@ -66,17 +65,18 @@ $(document).ready(function() {
         runInterval = setInterval(doRun, data[level].time * 1000);
         function doRun() {
             clearInterval(barInterval); // clear progress bar interval
-
-            // if (run > data[level].runs) {
-            //     changeLevel(); // move up level if done all runs
-            // }
-            // run++;
+            if (run > data[level].runs) {
+                // changeLevel(); // move up level if done all runs
+            }
+            run++;
             // beep at start of run?
-            
+            $('#buzzer').trigger('play');
             // show progress
             progressBar();
         }
     }
+    
+    
     
    
     $('#stop').on('click', function() {
