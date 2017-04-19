@@ -3,8 +3,11 @@
 /* global $ */
 
 var data20 = {
-    1: { runs: 7, time: 9.00, speed: 8.0 },
-    2: { runs: 8, time: 8.00, speed: 9.0 }
+    info: { distance: 20 },
+    1: { runs: 7, time: 9.00, speed: 8.0, total_distance: 140 },
+    2: { runs: 8, time: 8.00, speed: 9.0, total_distance: 300 },
+    3: { runs: 8, time: 7.58, speed: 9.5, total_distance: 460 },
+    4: { runs: 9, time: 7.20, speed: 10.0, total_distance: 640 }
 };
 
 $(document).ready(function() {
@@ -14,10 +17,6 @@ $(document).ready(function() {
     
     var level = 1; // the current level
     var run = 0; // the current run number
-    var ran = 0; // the distance ran
-    var speed = 0; // the current speed
-    
-    //
     
     // intervals
     var barInterval, runInterval;
@@ -45,7 +44,7 @@ $(document).ready(function() {
             $('#prog-bar').addClass('lighten-1');
         }
         // run the progress bar interval
-        barInterval = setInterval(barUpdate, data[level].time * 9);
+        barInterval = setInterval(barUpdate, data[level].time * 18);
         function barUpdate() {
             // if it reaches 100 or 0 swap classes and clear
             if (forward && barWidth > 99) {
@@ -56,14 +55,14 @@ $(document).ready(function() {
                 return clearInterval(barInterval);
             }
             // add one or remove one to the percentage
-            var newWidth = forward ? barWidth++ : barWidth-- ; 
+            var newWidth = forward ? barWidth+=2 : barWidth-=2 ; 
             $('#bar').width(newWidth + '%');
         }
     };
     
     function doLevel() {
         $('h1').text('Level ' + level); // update the level text
-        $('#info-speed').text(data[level].speed); // update the speed text
+        $('#info-speed').text(data[level].speed + ' km/hr'); // update the speed text
         doRun();
         runInterval = setInterval(doRun, data[level].time * 1000);
         function doRun() {
@@ -72,10 +71,17 @@ $(document).ready(function() {
                 clearInterval(runInterval);
                 return changeLevel(); // move up level if done all runs
             }
+            // set the distance run so far
+            var distanceRan = run * data.info.distance;
+            if (data[level-1]) {
+                distanceRan += data[level-1].total_distance;
+            }
+            $('#info-ran').text(distanceRan + "m");
+            // add one to the run
             run++;
             // set the run text
             $('#info-run').text(run);
-            // beep at start of run?
+            // beep at start of run
             $('#buzzer').trigger('play');
             // show progress
             progressBar();
