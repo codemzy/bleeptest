@@ -20,7 +20,7 @@ $(document).ready(function() {
     //
     
     // intervals
-    var barInterval;
+    var barInterval, runInterval;
    
     $('#start').on('click', function() {
        $('h1').text('Level ' + level);
@@ -33,6 +33,7 @@ $(document).ready(function() {
     
     // function to run interval for progress bar
     let progressBar = function() {
+        $('#buzzer').trigger('play');
         var forward = $("#bar").hasClass("lighten-1") ? true : false; // should bar move forward or backward
         var barWidth = forward ? 0 : 100; // start at 0 or 100
         barInterval = setInterval(barUpdate, data[level].time * 10);
@@ -54,6 +55,21 @@ $(document).ready(function() {
             $('#bar').width(newWidth + '%');
         }
     };
+    
+    function doLevel() {
+        runInterval = setInterval(doRun, data[level].time * 1000);
+        function doRun() {
+            if (run > data[level].runs) {
+                changeLevel(); // move up level if done all runs
+            }
+            run++;
+            // beep at start of run?
+            
+            // show progress
+            progressBar();
+        }
+    }
+    
    
     $('#stop').on('click', function() {
        $('#start').removeClass('disabled');
