@@ -3,8 +3,8 @@
 /* global $ */
 
 var data20 = {
-    1: { runs: 7, time: 9.00, speed: 8 },
-    2: { runs: 8, time: 8.00, speed: 9 }
+    1: { runs: 7, time: 9.00, speed: 8.0 },
+    2: { runs: 8, time: 8.00, speed: 9.0 }
 };
 
 $(document).ready(function() {
@@ -62,6 +62,8 @@ $(document).ready(function() {
     };
     
     function doLevel() {
+        $('h1').text('Level ' + level); // update the level text
+        $('#info-speed').text(data[level].speed); // update the speed text
         doRun();
         runInterval = setInterval(doRun, data[level].time * 1000);
         function doRun() {
@@ -87,7 +89,6 @@ $(document).ready(function() {
             level++;
             run = 0;
         }
-        $('h1').text('Level ' + level); // update the level text
         doLevel();
     }
    
