@@ -66,10 +66,13 @@ $(document).ready(function() {
         runInterval = setInterval(doRun, data[level].time * 1000);
         function doRun() {
             clearInterval(barInterval); // clear progress bar interval
-            if (run > data[level].runs) {
+            if (run === data[level].runs) {
+                clearInterval(runInterval);
                 return changeLevel(); // move up level if done all runs
             }
             run++;
+            // set the run text
+            $('#info-run').text(run);
             // beep at start of run?
             $('#buzzer').trigger('play');
             // show progress
@@ -82,7 +85,9 @@ $(document).ready(function() {
         clearInterval(runInterval); // clear run interval
         if (data[level+1]) {
             level++;
+            run = 0;
         }
+        $('h1').text('Level ' + level); // update the level text
         doLevel();
     }
    
