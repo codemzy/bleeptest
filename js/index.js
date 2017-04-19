@@ -28,7 +28,7 @@ $(document).ready(function() {
         $('#start').addClass('disabled');
         $('#stop').removeClass('disabled');
         $('#bar').removeClass('indeterminate');
-        $('#bar').width('0%').addClass('determinate');
+        $('#bar').width('0%').addClass('determinate forward');
         doLevel();
     });
     
