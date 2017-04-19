@@ -22,12 +22,14 @@ $(document).ready(function() {
     var barInterval, runInterval;
    
     $('#start').on('click', function() {
-       $('h1').text('Level ' + level);
-       $('#start').addClass('disabled');
-       $('#stop').removeClass('disabled');
-       $('#bar').removeClass('indeterminate');
-       $('#bar').width('0%').addClass('determinate');
-       doLevel();
+        level = 1;
+        run = 0;
+        $('h1').text('Level ' + level);
+        $('#start').addClass('disabled');
+        $('#stop').removeClass('disabled');
+        $('#bar').removeClass('indeterminate');
+        $('#bar').width('0%').addClass('determinate');
+        doLevel();
     });
     
     // function to run interval for progress bar
