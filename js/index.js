@@ -17,6 +17,8 @@ $(document).ready(function() {
     var ran = 0; // the distance ran
     var speed = 0; // the current speed
     
+    //
+    
     // intervals
     var barInterval;
    
@@ -31,16 +33,24 @@ $(document).ready(function() {
     
     // function to run interval for progress bar
     let progressBar = function() {
-        var barWidth = 0; // always start at 0
+        var forward = $("#bar").hasClass("lighten-1") ? true : false; // should bar move forward or backward
+        var barWidth = forward ? 0 : 100; // start at 0 or 100
         barInterval = setInterval(barUpdate, data[level].time * 10);
         function barUpdate() {
-            // if it reaches 100 set back to zero and clear
-            if (barWidth > 99) {
+            // if it reaches 100 or 0 swap classes and clear
+            if (forward && barWidth > 99) {
+                $('#bar').width('100%');
+                $('#bar').removeClass('lighten-1').addClass('lighten-4');
+                $('#prog-bar').removeClass('lighten-4').addClass('lighten-1');
+                return clearInterval(barInterval);
+            } else if (!forward && barWidth < 1) {
                 $('#bar').width('0%');
+                $('#bar').removeClass('lighten-4').addClass('lighten-1');
+                $('#prog-bar').removeClass('lighten-1').addClass('lighten-4');
                 return clearInterval(barInterval);
             }
-            // add one to the percentage
-            var newWidth = barWidth++; 
+            // add one or remove one to the percentage
+            var newWidth = forward ? barWidth++ : barWidth-- ; 
             $('#bar').width(newWidth + '%');
         }
     };
