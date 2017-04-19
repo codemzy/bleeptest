@@ -13,7 +13,7 @@ $(document).ready(function() {
     var data = data20;
     
     var level = 1; // the current level
-    var run = 1; // the current run number
+    var run = 0; // the current run number
     var ran = 0; // the distance ran
     var speed = 0; // the current speed
     
@@ -62,11 +62,12 @@ $(document).ready(function() {
     };
     
     function doLevel() {
+        doRun();
         runInterval = setInterval(doRun, data[level].time * 1000);
         function doRun() {
             clearInterval(barInterval); // clear progress bar interval
             if (run > data[level].runs) {
-                // changeLevel(); // move up level if done all runs
+                return changeLevel(); // move up level if done all runs
             }
             run++;
             // beep at start of run?
@@ -76,8 +77,14 @@ $(document).ready(function() {
         }
     }
     
-    
-    
+    function changeLevel() {
+        clearInterval(barInterval); // clear progress bar interval
+        clearInterval(runInterval); // clear run interval
+        if (data[level+1]) {
+            level++;
+        }
+        doLevel();
+    }
    
     $('#stop').on('click', function() {
        $('#start').removeClass('disabled');
