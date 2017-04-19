@@ -34,20 +34,26 @@ $(document).ready(function() {
     // function to run interval for progress bar
     let progressBar = function() {
         $('#buzzer').trigger('play');
-        var forward = $("#bar").hasClass("lighten-1") ? true : false; // should bar move forward or backward
+        var forward = $("#bar").hasClass("forward") ? true : false; // should bar move forward or backward
         var barWidth = forward ? 0 : 100; // start at 0 or 100
+        // set the classes
+        $('#bar, #prog-bar').removeClass('lighten-1 lighten-4'); // remove classes from both bars
+        if (forward) {
+            $('#bar').addClass('lighten-1');
+            $('#prog-bar').addClass('lighten-4');
+        } else {
+            $('#bar').addClass('lighten-4');
+            $('#prog-bar').addClass('lighten-1');
+        }
+        // run the progress bar interval
         barInterval = setInterval(barUpdate, data[level].time * 9);
         function barUpdate() {
             // if it reaches 100 or 0 swap classes and clear
             if (forward && barWidth > 99) {
-                $('#bar').width('100%');
-                $('#bar').removeClass('lighten-1').addClass('lighten-4');
-                $('#prog-bar').removeClass('lighten-4').addClass('lighten-1');
+                $('#bar').width('100%').removeClass('forward');
                 return clearInterval(barInterval);
             } else if (!forward && barWidth < 1) {
-                $('#bar').width('0%');
-                $('#bar').removeClass('lighten-4').addClass('lighten-1');
-                $('#prog-bar').removeClass('lighten-1').addClass('lighten-4');
+                $('#bar').width('0%').addClass('forward');
                 return clearInterval(barInterval);
             }
             // add one or remove one to the percentage
