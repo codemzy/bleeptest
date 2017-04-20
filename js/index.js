@@ -96,8 +96,8 @@ $(document).ready(function() {
         if (data[level+1]) {
             level++;
             run = 0;
+            doLevel();
         }
-        doLevel();
     }
    
     $('#stop').on('click', function() {
