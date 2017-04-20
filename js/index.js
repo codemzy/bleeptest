@@ -76,14 +76,17 @@ $(document).ready(function() {
     var barInterval, runInterval, timerInterval;
    
     $('#start').on('click', function() {
+        // reset data
         level = 1;
         run = 0;
         $('h1').text('Level ' + level);
         $('#result-quote').remove(); // remove result quote if present
+        // update classes
         $('#start').addClass('disabled');
         $('#stop').removeClass('disabled');
         $('#bar').removeClass('indeterminate');
         $('#bar').width('0%').addClass('determinate forward');
+        // start functions
         doLevel();
         runTimer();
     });
@@ -160,6 +163,8 @@ $(document).ready(function() {
         // start with zero
         timer.minutes = 0;
         timer.seconds = 0;
+        $('#minutes').text("00");
+        $('#seconds').text("00");
         // start the timer
         timerInterval = setInterval(addSecond, 1000);   
         function addSecond() {
