@@ -32,7 +32,7 @@ var data20 = {
 
 // Results Quotes
 var quotes = {
-    1: "You can do better next time!" ,
+    1: "Better luck next time!" ,
     2: "You're just warming up!",
     3: "Now you're hitting your stride!",
     4: "Keep practising!",
@@ -59,6 +59,11 @@ var quotes = {
 
 $(document).ready(function() {
     
+    // show the side menu
+    $(".button-collapse").sideNav();
+    
+    // BLEEP TEST
+    
     // the bleep test data we are using
     var data = data20;
     
@@ -72,6 +77,7 @@ $(document).ready(function() {
         level = 1;
         run = 0;
         $('h1').text('Level ' + level);
+        $('#result-quote').remove(); // remove result quote if present
         $('#start').addClass('disabled');
         $('#stop').removeClass('disabled');
         $('#bar').removeClass('indeterminate');
@@ -154,6 +160,9 @@ $(document).ready(function() {
        $('#bar').removeClass('determinate');
        clearInterval(barInterval); // clear progress bar interval
        clearInterval(runInterval); // clear progress bar interval
+       // show result info
+       $('h1').text('Result: ' + level + "." + run);
+       $('h1').after('<p id="result-quote" class="flow-text">' + quotes[level] + '</p>');
     });
    
 });

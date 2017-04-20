@@ -20,3 +20,11 @@ body,html {
     background: #000000;
     background: rgba(0,0,0,0.6);
 }
+
+@media print
+{
+    #start, #stop, .button-collapse, nav ul {
+        display: none;
+    }
+    
+}
