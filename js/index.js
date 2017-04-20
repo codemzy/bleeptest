@@ -35,7 +35,7 @@ var quotes = {
     1: "Better luck next time!" ,
     2: "You're just warming up!",
     3: "Now you're hitting your stride!",
-    4: "Keep practising!",
+    4: "Keep practicing!",
     5: "Working up a sweat!",
     6: "You got this!",
     7: "No pain, no gain!",
@@ -60,7 +60,7 @@ var quotes = {
 $(document).ready(function() {
     
     // show the side menu
-    $(".button-collapse").sideNav();
+    $(".menu-collapse").sideNav();
     
     // BLEEP TEST
     
