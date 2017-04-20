@@ -6,7 +6,7 @@
 
 // Run Data
 var data20 = {
-    info: { distance: 20 },
+    info: { distance: 20, description: "Bleep Test timings based on the British National Coaching 20m Bleep Test." },
     1: { runs: 7, time: 9.00, speed: 8.0, total_distance: 140 },
     2: { runs: 8, time: 8.00, speed: 9.0, total_distance: 300 },
     3: { runs: 8, time: 7.58, speed: 9.5, total_distance: 460 },
@@ -69,9 +69,11 @@ $(document).ready(function() {
     
     var level = 1; // the current level
     var run = 0; // the current run number
+    // the timer
+    var timer = { minutes: 0, seconds: 0 };
     
     // intervals
-    var barInterval, runInterval;
+    var barInterval, runInterval, timerInterval;
    
     $('#start').on('click', function() {
         level = 1;
@@ -83,6 +85,7 @@ $(document).ready(function() {
         $('#bar').removeClass('indeterminate');
         $('#bar').width('0%').addClass('determinate forward');
         doLevel();
+        runTimer();
     });
     
     // function to run interval for progress bar
@@ -152,6 +155,28 @@ $(document).ready(function() {
             doLevel();
         }
     }
+    
+    let runTimer = function() {
+        // start with zero
+        timer.minutes = 0;
+        timer.seconds = 0;
+        // start the timer
+        timerInterval = setInterval(addSecond, 1000);   
+        function addSecond() {
+            if (timer.seconds < 59) {
+                timer.seconds++;
+            } else if (timer.seconds === 59) {
+                timer.seconds === 0;
+                timer.minutes++;
+            }
+            // add zero if below 10
+            let displaySeconds = timer.seconds < 10 ? "0" + timer.seconds : timer.seconds;
+            let displayMinutes = timer.minutes < 10 ? "0" + timer.minutes : timer.minutes;
+            // display the time
+            $('#minutes').text(displayMinutes);
+            $('#seconds').text(displaySeconds);
+        }
+    };
    
     $('#stop').on('click', function() {
        $('#start').removeClass('disabled');
@@ -159,7 +184,8 @@ $(document).ready(function() {
        $('#bar').width('0%').addClass('indeterminate');
        $('#bar').removeClass('determinate');
        clearInterval(barInterval); // clear progress bar interval
-       clearInterval(runInterval); // clear progress bar interval
+       clearInterval(runInterval); // clear run interval
+       clearInterval(timerInterval); // clear timer interval
        // show result info
        $('h1').text('Result: ' + level + "." + run);
        $('h1').after('<p id="result-quote" class="flow-text">' + quotes[level] + '</p>');
