@@ -7,7 +7,24 @@ var data20 = {
     1: { runs: 7, time: 9.00, speed: 8.0, total_distance: 140 },
     2: { runs: 8, time: 8.00, speed: 9.0, total_distance: 300 },
     3: { runs: 8, time: 7.58, speed: 9.5, total_distance: 460 },
-    4: { runs: 9, time: 7.20, speed: 10.0, total_distance: 640 }
+    4: { runs: 9, time: 7.20, speed: 10.0, total_distance: 640 },
+    5: { runs: 9, time: 6.86, speed: 10.5, total_distance: 820 },
+    6: { runs: 10, time: 6.55, speed: 11.0, total_distance: 1020 },
+    7: { runs: 10, time: 6.26, speed: 11.5, total_distance: 1220 },
+    8: { runs: 11, time: 6.00, speed: 12, total_distance: 1440 },
+    9: { runs: 11, time: 5.76, speed: 12.5, total_distance: 1660 },
+    10: { runs: 11, time: 5.54, speed: 13, total_distance: 1880 },
+    11: { runs: 12, time: 5.33, speed: 13.5, total_distance: 2120 },
+    12: { runs: 12, time: 5.14, speed: 14, total_distance: 2360 },
+    13: { runs: 13, time: 4.97, speed: 14.5, total_distance: 2620 },
+    14: { runs: 13, time: 4.80, speed: 15, total_distance: 2880 },
+    15: { runs: 13, time: 4.65, speed: 15.5, total_distance: 3140 },
+    16: { runs: 14, time: 4.50, speed: 16, total_distance: 3420 },
+    17: { runs: 14, time: 4.36, speed: 16.5, total_distance: 3700 },
+    18: { runs: 15, time: 4.24, speed: 17, total_distance: 4000 },
+    19: { runs: 15, time: 4.11, speed: 17.5, total_distance: 4300 },
+    20: { runs: 16, time: 4.00	, speed: 18, total_distance: 4620 },
+    21: { runs: 16, time: 3.89	, speed: 18.5, total_distance: 4940 }
 };
 
 $(document).ready(function() {
