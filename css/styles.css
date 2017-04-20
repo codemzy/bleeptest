@@ -10,21 +10,34 @@ body,html {
   padding: 0;
 }
 
+nav {
+  background-color: transparent;
+}
+
+nav .brand-logo {
+  display: none;
+}
+
 .progress {
-    height: 30px;
+  height: 30px;
 }
 
 .bleep {
-    margin-top: 150px;
-    padding: 50px 10px;
-    background: #000000;
-    background: rgba(0,0,0,0.6);
+  margin-top: 150px;
+  padding: 50px 10px;
+  background: #000000;
+  background: rgba(0,0,0,0.6);
 }
 
 @media print
 {
-    #start, #stop, .button-collapse, nav ul {
-        display: none;
-    }
+  
+  #start, #stop, nav ul {
+      display: none;
+  }
     
+  nav .brand-logo {
+    display: inline-block;
+  }
+  
 }
