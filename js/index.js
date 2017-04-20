@@ -166,7 +166,7 @@ $(document).ready(function() {
             if (timer.seconds < 59) {
                 timer.seconds++;
             } else if (timer.seconds === 59) {
-                timer.seconds === 0;
+                timer.seconds = 0;
                 timer.minutes++;
             }
             // add zero if below 10
