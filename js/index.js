@@ -2,6 +2,9 @@
 
 /* global $ */
 
+// DATA
+
+// Run Data
 var data20 = {
     info: { distance: 20 },
     1: { runs: 7, time: 9.00, speed: 8.0, total_distance: 140 },
@@ -23,9 +26,36 @@ var data20 = {
     17: { runs: 14, time: 4.36, speed: 16.5, total_distance: 3700 },
     18: { runs: 15, time: 4.24, speed: 17, total_distance: 4000 },
     19: { runs: 15, time: 4.11, speed: 17.5, total_distance: 4300 },
-    20: { runs: 16, time: 4.00	, speed: 18, total_distance: 4620 },
-    21: { runs: 16, time: 3.89	, speed: 18.5, total_distance: 4940 }
+    20: { runs: 16, time: 4.00, speed: 18, total_distance: 4620 },
+    21: { runs: 16, time: 3.89, speed: 18.5, total_distance: 4940 }
 };
+
+// Results Quotes
+var quotes = {
+    1: "You can do better next time!" ,
+    2: "You're just warming up!",
+    3: "Now you're hitting your stride!",
+    4: "Keep practising!",
+    5: "Working up a sweat!",
+    6: "You got this!",
+    7: "No pain, no gain!",
+    8: "You were born to do this!",
+    9: "Run forest, run!",
+    10: "It's fun to run!",
+    11: "There is no finish line!",
+    12: "Running is the answer!",
+    13: "Witness the fitness!",
+    14: "Run like zombies are chasing you!",
+    15: "Damn, you fast!",
+    16: "You are an athlete!",
+    17: "You are a machine!",
+    18: "You're flying now!",
+    19: "You're filled with rocket fuel!",
+    20: "No one can catch you!",
+    21: "Good luck at the olympics!"  
+};
+
+
 
 $(document).ready(function() {
     
