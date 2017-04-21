@@ -1,7 +1,7 @@
 html {
   background: url(../img/bgs/runner.jpg) bottom center;
   background-size: cover;
-  background-color: #e1f5fe;
+  background-color: #b3e5fc;
   height: 100%;
 }
 
@@ -32,7 +32,7 @@ nav .brand-logo {
   margin-top: 150px;
   padding: 50px 10px;
   background: #000000;
-  background: rgba(0,0,0,0.6);
+  background: rgba(38,50,56,0.6);
 }
 
 @media print
