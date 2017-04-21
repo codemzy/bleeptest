@@ -72,6 +72,8 @@ $(document).ready(function() {
     // the timer
     var timer = { minutes: 0, seconds: 0 };
     
+    // timeout
+    var delayStart;
     // intervals
     var barInterval, runInterval, timerInterval;
    
@@ -87,8 +89,10 @@ $(document).ready(function() {
         $('#bar').removeClass('indeterminate');
         $('#bar').width('0%').addClass('determinate forward');
         // start functions
-        doLevel();
-        runTimer();
+        delayStart = setTimeout(function(){ 
+            doLevel();
+            runTimer();
+        }, 5000);
     });
     
     // function to run interval for progress bar
@@ -188,6 +192,7 @@ $(document).ready(function() {
        $('#stop').addClass('disabled');
        $('#bar').width('0%').addClass('indeterminate');
        $('#bar').removeClass('determinate');
+       clearTimeout(delayStart); // clear start delay if not already called
        clearInterval(barInterval); // clear progress bar interval
        clearInterval(runInterval); // clear run interval
        clearInterval(timerInterval); // clear timer interval
