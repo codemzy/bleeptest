@@ -83,6 +83,11 @@ $(document).ready(function() {
         run = 0;
         $('h1').text('Level ' + level);
         $('#result-quote').remove(); // remove result quote if present
+        // start timer with zero
+        timer.minutes = 0;
+        timer.seconds = 0;
+        $('#minutes').text("00");
+        $('#seconds').text("00");
         // update classes
         $('#start').addClass('disabled');
         $('#stop').removeClass('disabled');
@@ -91,7 +96,7 @@ $(document).ready(function() {
         // start functions
         Materialize.toast('Start when you hear the bleep...', 4000);
         delayStart = setTimeout(function(){ 
-            Materialize.toast('GO GO GO!!!!!!!!!!!', 2000);
+            Materialize.toast('GO GO GO !!!!!!!!!!!', 2000);
             doLevel();
             runTimer();
         }, 5000);
@@ -166,11 +171,6 @@ $(document).ready(function() {
     }
     
     let runTimer = function() {
-        // start with zero
-        timer.minutes = 0;
-        timer.seconds = 0;
-        $('#minutes').text("00");
-        $('#seconds').text("00");
         // start the timer
         timerInterval = setInterval(addSecond, 1000);   
         function addSecond() {
