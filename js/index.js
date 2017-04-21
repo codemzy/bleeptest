@@ -82,7 +82,7 @@ $(document).ready(function() {
         level = 1;
         run = 0;
         $('h1').text('Level ' + level);
-        $('#result-quote').remove(); // remove result quote if present
+        $('#result-quote, .result-info').remove(); // remove result quote if present
         // start timer with zero
         timer.minutes = 0;
         timer.seconds = 0;
@@ -201,6 +201,8 @@ $(document).ready(function() {
        // show result info
        $('h1').text('Result: ' + level + "." + run);
        $('h1').after('<p id="result-quote" class="flow-text">' + quotes[level] + '</p>');
+       $('#info-1').prepend('<div class="result-info">Level: ' + level + '</div>');
+       $('#info-2').append('<div class="result-info">Time: ' + level + '</div>');
     });
    
 });
