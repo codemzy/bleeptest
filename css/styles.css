@@ -24,6 +24,10 @@ nav .brand-logo {
   display: none;
 }
 
+#info {
+  font-size: 16px;
+}
+
 .progress {
   height: 30px;
 }
@@ -33,6 +37,10 @@ nav .brand-logo {
   padding: 50px 10px;
   background: #000000;
   background: rgba(38,50,56,0.6);
+}
+
+.bleep .btn {
+  margin: 5px;
 }
 
 @media print

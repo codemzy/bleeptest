@@ -1,6 +1,6 @@
 'use strict';
 
-/* global $ */
+/* global $, Materialize */
 
 // DATA
 
@@ -89,7 +89,9 @@ $(document).ready(function() {
         $('#bar').removeClass('indeterminate');
         $('#bar').width('0%').addClass('determinate forward');
         // start functions
+        Materialize.toast('Start when you hear the bleep...', 4000);
         delayStart = setTimeout(function(){ 
+            Materialize.toast('GO GO GO!!!!!!!!!!!', 2000);
             doLevel();
             runTimer();
         }, 5000);
