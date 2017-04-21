@@ -6,7 +6,7 @@
 
 // Run Data
 var data20 = {
-    info: { distance: 20, description: "Bleep Test timings based on the British National Coaching 20m Bleep Test." },
+    info: { distance: 20, description: "Timings based on the British National Coaching 20m Bleep Test." },
     1: { runs: 7, time: 9.00, speed: 8.0, total_distance: 140 },
     2: { runs: 8, time: 8.00, speed: 9.0, total_distance: 300 },
     3: { runs: 8, time: 7.58, speed: 9.5, total_distance: 460 },
