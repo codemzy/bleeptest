@@ -78,8 +78,9 @@ $(document).ready(function() {
     var barInterval, runInterval, timerInterval;
    
     $('#start').on('click', function() {
-        // reset data
+        // to trigger audio on click (but silent) to fix bug in ios that will only play sound triggered by action.
         $('#buzzer').trigger('play').trigger('pause');
+        // reset data
         level = 1;
         run = 0;
         $('h1').text('Level ' + level);
