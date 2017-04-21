@@ -1,7 +1,8 @@
 html {
   background: url(../img/bgs/runner.jpg) bottom center;
   background-size: cover;
-  background-color: #b3e5fc;
+  background-repeat: no-repeat;
+  background-color: #ee6e73;
   height: 100%;
 }
 
