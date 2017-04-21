@@ -79,6 +79,7 @@ $(document).ready(function() {
    
     $('#start').on('click', function() {
         // reset data
+        $('#buzzer').trigger('play').trigger('pause');
         level = 1;
         run = 0;
         $('h1').text('Level ' + level);
