@@ -12,4 +12,4 @@ A simple bleep test app.
 
 Built to be used for training for bleep test, beep test, shuttle run etc.
 
-View at: 
+View at: https://codemzy.github.io/bleeptest
