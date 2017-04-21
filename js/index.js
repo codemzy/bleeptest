@@ -148,7 +148,7 @@ $(document).ready(function() {
             if (data[level-1]) {
                 distanceRan += data[level-1].total_distance;
             }
-            $('#info-ran').text(distanceRan + "m");
+            $('#info-ran').text(distanceRan);
             // add one to the run
             run++;
             // set the run text
@@ -202,7 +202,8 @@ $(document).ready(function() {
        $('h1').text('Result: ' + level + "." + run);
        $('h1').after('<p id="result-quote" class="flow-text">' + quotes[level] + '</p>');
        $('#info-1').prepend('<div class="result-info">Level: ' + level + '</div>');
-       $('#info-2').append('<div class="result-info">Time: ' + level + '</div>');
+       var totalRuns = parseInt($('#info-ran').text(), 10) / data.info.distance; // get the total runs completed
+       $('#info-2').append('<div class="result-info">Total Runs: ' + totalRuns + '</div>');
     });
    
 });
