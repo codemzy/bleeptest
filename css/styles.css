@@ -1,14 +1,13 @@
 html {
+  min-height: 100%;
+}
+
+body {
   background: url(../img/bgs/runner.jpg) bottom center;
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #ee6e73;
-  height: 100%;
-}
-
-body,html {
-  margin: 0;
-  padding: 0;
+  min-height: 100%;
 }
 
 nav {
